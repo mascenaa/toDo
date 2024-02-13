@@ -2,12 +2,14 @@ package com.mascena.todo.models;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.ArrayList;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -47,7 +49,10 @@ public class User {
      @Size(min = 8, max = 30, groups = { CreateUser.class, UpdateUser.class })
      private String password;
 
-     // private List<Tarefas> tarefas = new ArrayList<Tarefas>();
+     // Definir o relacionamento entre as entidades User e Task
+     @OneToMany(mappedBy = "user")
+     @Column(name = "tarefas")
+     private List<Task> tarefas = new ArrayList<Task>();
 
      public User() {
      }
@@ -75,6 +80,14 @@ public class User {
 
      public void setPassword(String password) {
           this.password = password;
+     }
+
+     public List<Task> getTarefas() {
+          return tarefas;
+     }
+
+     public void setTarefas(List<Task> tarefas) {
+          this.tarefas = tarefas;
      }
 
      @Override
