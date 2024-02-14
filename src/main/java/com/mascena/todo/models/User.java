@@ -54,6 +54,7 @@ public class User {
      @Column(name = "tarefas")
      private List<Task> tarefas = new ArrayList<Task>();
 
+     // Construtores
      public User() {
      }
 
