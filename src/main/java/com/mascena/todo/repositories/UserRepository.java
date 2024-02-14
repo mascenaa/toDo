@@ -8,8 +8,4 @@ import com.mascena.todo.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-     User findById(long id);
-
-     User findByUsername(String username);
-
 }

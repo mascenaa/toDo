@@ -108,4 +108,9 @@ public class User {
           return Objects.hash(id, username, password);
      }
 
+     public void setId(Object object) {
+          // TODO Auto-generated method stub
+          throw new UnsupportedOperationException("Unimplemented method 'setId'");
+     }
+
 }
