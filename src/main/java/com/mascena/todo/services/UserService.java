@@ -47,7 +47,6 @@ public class UserService {
      @Transactional
      public void deleteUser(long id) {
           findById(id);
-
           try {
                this.userRepository.deleteById(id);
           } catch (Exception e) {
